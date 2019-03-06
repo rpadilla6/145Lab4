@@ -4,6 +4,7 @@
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include <avr/io.h>
+#include <stdlib.h>
 
 #define XTAL_FRQ 8000000lu
 
@@ -14,6 +15,12 @@
 #define WDR() asm volatile("wdr"::)
 #define NOP() asm volatile("nop"::)
 #define RST() for(;;);
+#define ONEVT 204.6
+#define A 1784
+struct note{
+	float freq;
+	int dur;
+};
 
 void avr_init(void);
 
